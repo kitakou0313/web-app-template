@@ -8,6 +8,11 @@ Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
     - データベース作製
     - migration前に実行する必要あり
 
+## DB定義
+- https://dbdiagram.io/home
+    - E-R図で作成可能
+    - SQLとしてエクスポートも可能
+
 ## 各サービスの役割
 - db
     - データ永続化
