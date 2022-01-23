@@ -19,7 +19,7 @@ services:
   migration:
     image: flyway/flyway
     volumes:
-      - ./database/migration/schema:/flyway/sql
+      - ./database/migration/sql:/flyway/sql
     depends_on:
       - db
 
@@ -32,22 +32,6 @@ services:
       - 6002:8080
     depends_on:
       - db
-
-  api:
-    build:
-      context: ./backend
-    command: reflex -r '\.go$$' -s -- sh -c 'go run cmd/api/main.go -databaseDatasource="${DATABASE_DATASOURCE}" -serviceAccountKeyPath=/tmp/serviceAccount.json -port=1991'
-    ports:
-      - 8888:8888
-    volumes:
-      - ./backend:/app
-    working_dir: /app
-
-  frontend:
-    build: 
-      context: ./frontend
-    ports:
-      - 80:80
 
 volumes:
   data-volume:
