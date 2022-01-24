@@ -1,8 +1,7 @@
 DBUSER:=root
-DBPASSWORD:=p@ssw0rd
+DBPASSWORD:=password
 DBPORT:=5432
 DBNAME:=hogehoge
-# https://docs.docker.com/docker-for-mac/networking/#use-cases-and-workarounds
 DOCKER_DNS:=db
 FLYWAY_CONF?=-url=jdbc:postgresql://$(DOCKER_DNS):$(DBPORT)/$(DBNAME) -user=$(DBUSER) -password=$(DBPASSWORD)
 SERVICE:=
