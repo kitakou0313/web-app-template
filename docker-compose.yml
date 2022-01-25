@@ -23,6 +23,12 @@ services:
     depends_on:
       - db
 
+  api:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/app
+    
   adminer:
     image: adminer:4.8.1
     restart: always
