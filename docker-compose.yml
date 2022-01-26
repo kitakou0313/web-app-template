@@ -26,6 +26,7 @@ services:
   api:
     build:
       context: ./backend
+    command: reflex -r '\.go$$' -s -- sh -c 'go run cmd/api/main.go'
     volumes:
       - ./backend:/app
     
