@@ -26,7 +26,7 @@ Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
     - `database/migration/sql/`以下にSQLを設置すると`db`にmigrationしてくれる
     - ファイル名の形式に注意
         - https://flywaydb.org/documentation/concepts/migrations#sql-based-migrations
-- api
+- backend
     - 現在は`go 1.17.6`を使用
         - 最終的には`backend-dev`みたいなサービスを作ってその中にVSC serverを入れてその中で開発する形にしたい
         - localにgo入れるのあまりうれしくないので...
