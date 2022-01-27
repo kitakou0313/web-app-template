@@ -31,3 +31,6 @@ Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
         - 最終的には`backend-dev`みたいなサービスを作ってその中にVSC serverを入れてその中で開発する形にしたい
         - localにgo入れるのあまりうれしくないので...
     - apiの配信
+- go-swagger
+    - `go-swagger`を利用してレスポンス用のgoの構造体を生成する
+    - `./swagger`ディレクトリ内の`swagger.yml`をfront, backend双方で参照することで統一した形式で通信ができるようにする
