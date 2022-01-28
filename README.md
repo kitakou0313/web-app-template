@@ -14,6 +14,8 @@ Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
     - SQLとしてエクスポートも可能
 
 ## 各サービスの役割
+一部のサービスは各ディレクトリ内の`docker-compose.yml`内で定義されています
+
 - db
     - データ永続化
     - RDBMSでもNoSQLでもなんでも
