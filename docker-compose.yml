@@ -29,6 +29,8 @@ services:
     command: reflex -r '\.go$$' -s -- sh -c 'go run cmd/api/main.go'
     volumes:
       - ./backend:/app
+    ports:
+      - 80:80
     
   adminer:
     image: adminer:4.8.1
