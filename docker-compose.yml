@@ -30,7 +30,7 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      - PORT=80
+      PORT: "80"
     ports:
       - 80:80
     

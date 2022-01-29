@@ -3,7 +3,6 @@ DBPASSWORD:=password
 DBPORT:=5432
 DBNAME:=hogehoge
 DOCKER_DNS:=db
-FLYWAY_CONF?=-url=jdbc:postgresql://$(DOCKER_DNS):$(DBPORT)/$(DBNAME) -user=$(DBUSER) -password=$(DBPASSWORD)
 SERVICE:=
 COMMAND:=
 
@@ -36,6 +35,7 @@ __dc/down-remove:
 	docker-compose down --volumes
 
 MIGRATION_SERVICE:=migration
+FLYWAY_CONF?=-url=jdbc:postgresql://$(DOCKER_DNS):$(DBPORT)/$(DBNAME) -user=$(DBUSER) -password=$(DBPASSWORD)
 .PHONY: flyway/info
 flyway/info:
 	docker-compose run --rm $(MIGRATION_SERVICE) $(FLYWAY_CONF) info
