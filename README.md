@@ -8,6 +8,9 @@ Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
     - データベース作製
     - migration前に実行する必要あり
 
+## 各種実装方針
+- https://12factor.net/ja/ を参考にする
+
 ## DB定義
 - https://dbdiagram.io/home
     - E-R図で作成可能
