@@ -29,6 +29,8 @@ services:
     command: reflex -r '\.go$$' -s -- sh -c 'go run cmd/api/main.go'
     volumes:
       - ./backend:/app
+    environment:
+      - PORT=80
     ports:
       - 80:80
     
