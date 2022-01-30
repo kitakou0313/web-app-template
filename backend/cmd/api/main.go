@@ -1,11 +1,14 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"os"
+	"strconv"
+
+	"backend/app/interface/api"
 
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 )
 
 func hello(c echo.Context) error {
@@ -18,12 +21,16 @@ var PORT = os.Getenv("PORT")
 
 func main() {
 
-	e := echo.New()
+	parsedPort, err := strconv.Atoi(PORT)
+	if err != nil {
+		log.Panic(err)
+	}
 
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	server := api.NewServer()
 
-	e.GET("/", hello)
+	if err := server.Init(); err != nil {
+		log.Fatal(err)
+	}
 
-	e.Logger.Fatal(e.Start(":" + PORT))
+	server.Run(parsedPort)
 }
