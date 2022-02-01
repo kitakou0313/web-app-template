@@ -1,8 +1,16 @@
 # web-app-template
 Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
 
-## コマンド
+## 環境起動手順
+1. 本リポジトリをfork
+2. `.devcontainer/devcontainer.json`内の`service`propertyを変更する
+    - フロントエンド開発時は`frontend`
+    - バックエンド開発時は`backend`
+    - Visual Studio Codeサーバーをインストールする対象のコンテナを指定する
+3. `F1`からコマンドパレットを開き`Reopen in container`を実行、開いたサーバー内で作業
+4. Migrationなどの実行時はコンテナの外のターミナルから`Make`コマンドを実行する
 
+## コマンド
 `Makefile`で定義
 - `db/init`
     - データベース作製
@@ -33,8 +41,6 @@ Frontend, Backend(Golang), RDBのWebappの開発用テンプレート
         - https://flywaydb.org/documentation/concepts/migrations#sql-based-migrations
 - backend
     - 現在は`go 1.17.6`を使用
-        - 最終的には`backend-dev`みたいなサービスを作ってその中にVSC serverを入れてその中で開発する形にしたい
-        - localにgo入れるのあまりうれしくないので...
     - apiの配信
 - go-swagger
     - `go-swagger`を利用してレスポンス用のgoの構造体を生成する
