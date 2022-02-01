@@ -1,8 +1,9 @@
 package api
 
 import (
-	"net/http"
 	"strconv"
+
+	"backend/app/interface/api/handler"
 
 	"github.com/labstack/echo/v4"
 )
@@ -15,16 +16,11 @@ func NewServer() *Server {
 	return &Server{}
 }
 
-func hello(c echo.Context) error {
-	return c.String(
-		http.StatusOK, "Hello, World! 2",
-	)
-}
-
 func (s *Server) Init() error {
 	s.server = echo.New()
 
-	s.server.GET("/", hello)
+	// Adding Handler
+	s.Route()
 	return nil
 }
 
@@ -32,4 +28,11 @@ func (s *Server) Run(port int) {
 	if err := s.server.Start(":" + strconv.Itoa(port)); err != nil {
 		return
 	}
+}
+
+func (s *Server) Route() {
+	helloHandler := handler.NewHelloHandler()
+	s.server.GET(
+		"/", helloHandler.HelloHandler,
+	)
 }
