@@ -32,5 +32,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	server.Run(parsedPort)
+	server.RunTLS(parsedPort)
 }

@@ -6,6 +6,7 @@ import (
 	"backend/app/interface/api/handler"
 
 	"github.com/labstack/echo/v4"
+	"golang.org/x/crypto/acme/autocert"
 )
 
 type Server struct {
@@ -28,6 +29,17 @@ func (s *Server) Run(port int) {
 	if err := s.server.Start(":" + strconv.Itoa(port)); err != nil {
 		return
 	}
+}
+
+func (s *Server) RunTLS(port int) {
+	if err := s.server.StartAutoTLS(":" + strconv.Itoa(port)); err != nil {
+		return
+	}
+}
+
+// config TLS certificates and redirect from http to https
+func (s *Server) SetTLSConfig() {
+	s.server.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 }
 
 func (s *Server) Route() {
