@@ -16,11 +16,11 @@ dc/build:
 
 .PHONY: dc/up
 dc/up:
-	docker-compose up
+	docker-compose up db backend adminer
 
 .PHONY: dc/up-d
 dc/up-d:
-	docker-compose up -d
+	docker-compose up -d db backend adminer
 
 .PHONY: dc/down
 dc/down:
