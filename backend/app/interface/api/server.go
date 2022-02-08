@@ -39,6 +39,8 @@ func (s *Server) RunTLS(port int) {
 
 // config TLS certificates and redirect from http to https
 func (s *Server) SetTLSConfig() {
+	autocert.HostWhitelist()
+	s.server.AutoTLSManager.HostPolicy = autocert.HostWhitelist("localhost")
 	s.server.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 }
 
