@@ -29,10 +29,11 @@ services:
     command: reflex -r '\.go$$' -s -- sh -c 'go run cmd/api/main.go'
     volumes:
       - ./backend:/app
+      - lets_encrypt_cert_cache:/var/www/.cache
     environment:
-      PORT: "80"
+      PORT: "443"
     ports:
-      - 80:80
+      - 443:443
     
   adminer:
     image: adminer:4.8.1
@@ -47,3 +48,4 @@ services:
 volumes:
   data-volume:
   node_modules:
+  lets_encrypt_cert_cache: 
