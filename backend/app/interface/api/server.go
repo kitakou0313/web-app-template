@@ -20,6 +20,8 @@ func NewServer() *Server {
 func (s *Server) Init() error {
 	s.server = echo.New()
 
+	s.server.Debug = true
+
 	// Adding Handler
 	s.Route()
 	return nil
