@@ -34,6 +34,12 @@ services:
       PORT: "8888"
     ports:
       - 8888:8888
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - 4200:4200
     
   adminer:
     image: adminer:4.8.1
