@@ -31,9 +31,9 @@ services:
       - ./backend:/app
       - lets_encrypt_cert_cache:/var/www/.cache
     environment:
-      PORT: "80"
+      PORT: "8888"
     ports:
-      - 80:80
+      - 8888:8888
     
   adminer:
     image: adminer:4.8.1
