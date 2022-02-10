@@ -6,6 +6,7 @@ import (
 	"backend/app/interface/api/handler"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"golang.org/x/crypto/acme/autocert"
 )
 
@@ -22,9 +23,14 @@ func (s *Server) Init() error {
 
 	s.server.Debug = true
 
+	s.setCommonMiddleware()
 	// Adding Handler
 	s.Route()
 	return nil
+}
+
+func (s *Server) setCommonMiddleware() {
+	s.server.Use(middleware.Logger())
 }
 
 func (s *Server) Run(port int) {
