@@ -5,6 +5,15 @@ RUN go install github.com/cespare/reflex@latest
 FROM golang:1.17.6
 COPY --from=installer-reflex /go/bin/reflex /go/bin/reflex 
 
+ARG UID
+ARG GID
+ARG UNAME
+
+RUN groupadd -g ${GID} docker
+RUN useradd -u ${UID} -g ${GID} -s /bin/bash -m ${UNAME}
+
+USER ${UID}
+
 WORKDIR /app
 
 COPY go.mod .

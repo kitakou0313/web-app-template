@@ -26,6 +26,10 @@ services:
   backend:
     build:
       context: ./backend
+      args:
+        - UID=${UID}
+        - GID=${GID}
+        - UNAME=${UNAME}
     command: reflex -r '\.go$$' -s -- sh -c 'go run cmd/api/main.go'
     volumes:
       - ./backend:/app
