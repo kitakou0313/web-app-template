@@ -36,6 +36,8 @@ services:
       - lets_encrypt_cert_cache:/var/www/.cache
     environment:
       PORT: "8888"
+      POSTGRES_USER: ${DB_USEDR:-root}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-p@ssw0rd}
     ports:
       - 8888:8888
 
